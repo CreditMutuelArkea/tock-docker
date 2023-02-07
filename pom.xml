@@ -22,14 +22,14 @@
 
     <groupId>ai.tock</groupId>
     <artifactId>tock-docker</artifactId>
-    <version>22.9.5-SNAPSHOT</version>
+    <version>dev-22.9.5-SNAPSHOT-scenarios-v0</version>
     <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <major>22.9-SNAPSHOT</major>
         <latest>latest-SNAPSHOT</latest>
-        <tock>22.9.4</tock>
+        <version>dev-22.9.5-SNAPSHOT-scenarios-v0</version>
         <bot-open-data>22.9.4</bot-open-data>
         <stanford>22.9.4</stanford>
         <demo>22.9.0</demo>
