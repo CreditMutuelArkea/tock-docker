@@ -107,7 +107,6 @@ services:
 #      - tock_default_log_level=warn
 #      - tock_service_log_level=info
 #      - tock_database_log_level=warn
-      - botadminverticle_body_limit=-1
       - tock_bot_rest_client_request_timeout_ms=500000000
       - tock_bot_api_timeout_in_ms=500000000
       - tock_api_timout_in_s=600
