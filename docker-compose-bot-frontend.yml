@@ -97,7 +97,7 @@ services:
     environment:
       - tock_mongo_url=mongodb://mongo:27017,mongo2:27018,mongo3:27019/?replicaSet=tock
       - nlp_duckling_url=http://duckling:8080
-      - tock_env=prod
+      - tock_env=dev
       - tock_bot_admin_rest_default_base_url=http://bot_api:8080
       - tock_bot_compiler_service_url=http://kotlin_compiler:8080
       - tock_configuration_bot_default_base_url=http://bot_api:8080
