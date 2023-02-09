@@ -23,7 +23,7 @@
     <parent>
         <groupId>ai.tock</groupId>
         <artifactId>tock-docker</artifactId>
-        <version>dev-22.9.5-SNAPSHOT-scenarios-v0</version>
+        <version>22.9.4.1-ARKEA</version>
     </parent>
 
     <artifactId>tock-docker-bot-api</artifactId>
@@ -56,6 +56,8 @@
                                     <http_proxy>${env.HTTP_PROXY}</http_proxy>
                                 </args>
                                 <from>python:3.8-slim-buster</from>
+                                <!-- network as host is useful when using proxy in localhost-->
+                                <!-- <network>host</network> -->
                                 <assembly>
                                     <inline>
                                         <dependencySets>
