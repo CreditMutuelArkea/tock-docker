@@ -101,6 +101,7 @@ services:
       - tock_bot_admin_rest_default_base_url=http://bot_api:8080
       - tock_bot_compiler_service_url=http://kotlin_compiler:8080
       - tock_configuration_bot_default_base_url=http://bot_api:8080
+      - tock_bot_dialog_manager_debug_enabled=true
       #remove this in production
       - tock_https_env=false
       - botadminverticle_body_limit=-1
@@ -151,6 +152,8 @@ services:
       - nlp_api
     environment:
       - JAVA_ARGS=-Djava.library.path=/usr/local/lib/python3.8/site-packages/jep
+      - tock_bot_dialog_manager_python_path=/tmp/python
+      - tock_bot_dialog_manager_debug_enabled=true
       - tock_mongo_url=mongodb://mongo:27017,mongo2:27018,mongo3:27019/?replicaSet=tock
       - tock_nlp_service_url=http://nlp_api:8080
       - tock_env=integ
