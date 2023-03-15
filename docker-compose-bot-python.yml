@@ -139,6 +139,7 @@ services:
       - nlp_api
     environment:
       - JAVA_ARGS=-Djava.library.path=/usr/local/lib/python3.8/site-packages/jep
+      - tock_bot_dialog_manager_python_path=/tmp/python
       - tock_mongo_url=mongodb://mongo:27017,mongo2:27018,mongo3:27019/?replicaSet=tock
       - tock_nlp_service_url=http://nlp_api:8080
       - tock_env=integ
