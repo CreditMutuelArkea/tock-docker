@@ -54,7 +54,7 @@
                         <image>
                             <name>tock/nlp_api:${project.version}</name>
                             <build>
-                                <from>openjdk:19</from>
+                                <from>amazoncorretto:17-alpine</from>
                                 <assembly>
                                     <inline>
                                         <dependencySets>
