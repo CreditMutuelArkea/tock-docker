@@ -104,6 +104,10 @@ services:
 #      - tock_default_log_level=warn
 #      - tock_service_log_level=info
 #      - tock_database_log_level=warn
+      - 'tock_users=admin@app.com'
+      - 'tock_passwords=iaArkea!'
+      - 'tock_organizations=app'
+      - 'tock_roles=faqNlpUser|faqBotUser|nlpUser|botUser|admin|technicalAdmin'
     ports:
       - "80:8080"
 
