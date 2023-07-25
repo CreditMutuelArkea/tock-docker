@@ -23,7 +23,7 @@
     <parent>
         <groupId>ai.tock</groupId>
         <artifactId>tock-docker</artifactId>
-        <version>23.3.1-SNAPSHOT</version>
+        <version>dev-poc-llm-23.3.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>tock-docker-bot-api</artifactId>
@@ -31,6 +31,7 @@
 
     <properties>
         <dialog-manager>tock-bot-dialog-manager-core-${project.version}</dialog-manager>
+        <jdk>20</jdk>
     </properties>
 
     <dependencies>
@@ -45,7 +46,6 @@
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.42.1</version>
                 <configuration>
                     <verbose>true</verbose>
                     <images>
@@ -54,6 +54,8 @@
                             <build>
                                 <nocache>true</nocache>
                                 <from>python:3.8-slim-buster</from>
+                                <!-- If behind proxy -->
+                                <network>host</network>
                                 <assembly>
                                     <inline>
                                         <dependencySets>
@@ -75,16 +77,19 @@
                                     <arg>-c</arg>
                                 </shell>
                                 <env>
-                                    <JAVA_HOME>/usr/lib/jvm/java-19-amazon-corretto</JAVA_HOME>
+                                    <JAVA_HOME>/usr/lib/jvm/java-${jdk}-amazon-corretto</JAVA_HOME>
+                                    <!-- If behind proxy -->
+                                    <http_proxy>http://localhost:3128</http_proxy>
+                                    <https_proxy>http://localhost:3128</https_proxy>
                                 </env>
                                 <runCmds>
 
                                     <run>apt-get update </run>
                                     <run>apt-get -qq install -y curl wget gcc unzip graphviz</run>
 
-                                    <run>wget https://corretto.aws/downloads/latest/amazon-corretto-19-x64-linux-jdk.deb</run>
-                                    <run>apt-get -qqy install ./amazon-corretto-19-x64-linux-jdk.deb</run>
-                                    <run>update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-19-amazon-corretto/bin/java 1919</run>
+                                    <run>wget https://corretto.aws/downloads/latest/amazon-corretto-${jdk}-x64-linux-jdk.deb</run>
+                                    <run>apt-get -qqy install ./amazon-corretto-${jdk}-x64-linux-jdk.deb</run>
+                                    <run>update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-${jdk}-amazon-corretto/bin/java 1919</run>
 
                                     <run>unzip /maven/${dialog-manager}.jar -d /maven/${dialog-manager}</run>
                                     <run>mv /maven/${dialog-manager}/python /tmp</run>
@@ -99,6 +104,7 @@
                                     <tag>${latest}</tag>
                                     <tag>${project.version}</tag>
                                 </tags>
+
                             </build>
                             <run>
                                 <ports>

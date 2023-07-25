@@ -22,14 +22,14 @@
 
     <groupId>ai.tock</groupId>
     <artifactId>tock-docker</artifactId>
-    <version>23.3.1-SNAPSHOT</version>
+    <version>dev-poc-llm-23.3.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <major>23.3</major>
-        <latest>latest</latest>
-        <tock>23.3.0</tock>
+        <latest>latest-SNAPSHOT</latest>
+        <tock>dev-poc-llm-23.3.1-SNAPSHOT</tock>
         <bot-open-data>23.3.0</bot-open-data>
         <stanford>23.3.0</stanford>
         <demo>23.3.0</demo>
@@ -56,6 +56,7 @@
         <module>bot-open-data</module>
         <module>bot-admin-open-data</module>
         <module>kotlin-compiler</module>
+        <module>transverse-bot-api</module>
     </modules>
 
     <dependencyManagement>
@@ -106,6 +107,12 @@
             <dependency>
                 <groupId>ai.tock</groupId>
                 <artifactId>tock-nlp-build-model-worker-on-aws-batch</artifactId>
+                <version>${tock}</version>
+            </dependency>
+            <dependency>
+                <groupId>ai.tock</groupId>
+                <artifactId>transverse-bot-api</artifactId>
+                <classifier>dependencies</classifier>
                 <version>${tock}</version>
             </dependency>
             <dependency>
