@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  llm_python_core:
+    image: "tock/llm-python-core:${TAG}"
+    ports:
+      - "8000:8000"
+
