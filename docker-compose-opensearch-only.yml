@@ -1,10 +1,14 @@
+# WARNING to run this you need to ensure that vm.max_map_count is correctly configured
+# See https://opensearch.org/docs/latest/install-and-configure/install-opensearch/docker#important-host-settings
+# We recommande having at least 40Gb free space on your disk to prevent this error : https://stackoverflow.com/a/67767478
+#   If you have less and something goes wrong at the cluster boot check that you don't have any logs "high disk watermark [90%] exceeded"
+#   if so make some free space a few Gb until this error desapear.
 version: '3'
 
 services:
 
   opensearch-node1:
     image: "${PLATFORM}opensearchproject/opensearch:${OPENSEARCH}"
-    container_name: opensearch-node1
     environment:
       - cluster.name=opensearch-cluster
       - node.name=opensearch-node1
@@ -29,7 +33,6 @@ services:
 
   opensearch-node2:
     image: "${PLATFORM}opensearchproject/opensearch:${OPENSEARCH}"
-    container_name: opensearch-node2
     environment:
       - cluster.name=opensearch-cluster
       - node.name=opensearch-node2
@@ -51,7 +54,6 @@ services:
 
   opensearch-dashboards:
     image: "${PLATFORM}opensearchproject/opensearch-dashboards:${OPENSEARCH}"
-    container_name: opensearch-dashboards
     ports:
       - 5601:5601
     expose:
