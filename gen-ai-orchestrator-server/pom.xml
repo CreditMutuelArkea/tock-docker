@@ -72,7 +72,7 @@
                                     <port>8000:8000</port>
                                 </ports>
                                 <log>
-                                    <prefix>gen_ai_python_core</prefix>
+                                    <prefix>gen_ai_orchestrator_server</prefix>
                                     <color>yellow</color>
                                 </log>
                             </run>
