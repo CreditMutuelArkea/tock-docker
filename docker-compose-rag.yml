@@ -106,7 +106,7 @@ services:
       - nlp_duckling_url=http://duckling:8080
       - tock_env=prod
       - tock_file_upload_directory=file-uploads # custom directory for vert.x upload file system
-      - tock_namespace_open_access=false # Enabling/Disabling bot synchronization feature
+      - tock_namespace_open_access=true # Enabling/Disabling bot synchronization feature
       - tock_bot_admin_rest_default_base_url=http://bot_api:8080
       - tock_bot_compiler_service_url=http://kotlin_compiler:8080
       - tock_configuration_bot_default_base_url=http://bot_api:8080

@@ -34,10 +34,10 @@
         <tock-stanford>23.9.2-SNAPSHOT</tock-stanford>
         <demo>23.9.0</demo>
 
-        <jackson>2.15.3</jackson>
-        <jackson-databinding>2.15.3</jackson-databinding>
+        <jackson>2.17.0</jackson>
+        <jackson-databinding>2.17.0</jackson-databinding>
         <okhttp>4.12.0</okhttp>
-        <kotlin>1.9.21</kotlin>
+        <kotlin>1.9.23</kotlin>
 
         <plugin.docker>0.43.4</plugin.docker>
         <plugin.release>3.0.0-M6</plugin.release>
