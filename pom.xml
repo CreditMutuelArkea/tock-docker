@@ -22,7 +22,7 @@
 
     <groupId>ai.tock</groupId>
     <artifactId>tock-docker</artifactId>
-    <version>24.3.5-6cd51583b-SNAPSHOT</version>
+    <version>24.3.5-6cd51583b-ARKEA-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -148,6 +148,12 @@
                 <groupId>ai.tock</groupId>
                 <artifactId>tock-bot-demo-api-webhook</artifactId>
                 <version>${demo}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ai.tock</groupId>
+                <artifactId>tock-cas-arkea</artifactId>
+                <version>${tock}</version>
             </dependency>
 
             <dependency>

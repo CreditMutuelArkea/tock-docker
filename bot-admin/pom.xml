@@ -23,7 +23,7 @@
     <parent>
         <groupId>ai.tock</groupId>
         <artifactId>tock-docker</artifactId>
-        <version>24.3.5-6cd51583b-SNAPSHOT</version>
+        <version>24.3.5-6cd51583b-ARKEA-SNAPSHOT</version>
     </parent>
 
     <artifactId>tock-docker-bot-admin</artifactId>
@@ -57,6 +57,10 @@
         <dependency>
             <groupId>ai.tock</groupId>
             <artifactId>tock-nlp-model-rasa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ai.tock</groupId>
+            <artifactId>tock-cas-arkea</artifactId>
         </dependency>
     </dependencies>
 
