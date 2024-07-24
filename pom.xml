@@ -31,7 +31,7 @@
         <latest>latest-SNAPSHOT</latest>
         <tock>24.3.5-SNAPSHOT</tock>
         <bot-open-data>24.3.5-SNAPSHOT</bot-open-data>
-        <stanford>24.3.5-SNAPSHOT</stanford>
+        <tock-stanford>24.3.5-SNAPSHOT</tock-stanford>
         <demo>24.3.0</demo>
 
         <jackson>2.17.1</jackson>
@@ -130,7 +130,7 @@
             <dependency>
                 <groupId>ai.tock</groupId>
                 <artifactId>tock-nlp-model-stanford</artifactId>
-                <version>${stanford}</version>
+                <version>${tock-stanford}</version>
             </dependency>
             <dependency>
                 <groupId>ai.tock</groupId>
