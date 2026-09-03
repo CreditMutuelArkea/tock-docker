@@ -46,6 +46,10 @@
             <groupId>ai.tock</groupId>
             <artifactId>tock-nlp-model-rasa</artifactId>
         </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -72,11 +76,22 @@
                                                 <source>logback.xml</source>
                                                 <outputDirectory>.</outputDirectory>
                                             </file>
+                                            <file>
+                                                <source>logback-gcp.xml</source>
+                                                <outputDirectory>.</outputDirectory>
+                                            </file>
                                         </files>
                                     </inline>
                                 </assembly>
                                 <cmd>
-                                    <shell>java $JAVA_ARGS -Dfile.encoding=UTF-8 -Dtock_nlp_model_refresh=false -Dlogback.configurationFile='file:///maven/logback.xml' -cp '/maven/*' ai.tock.nlp.build.StartBuildWorkerKt $TOCK_BUILD_TYPE</shell>
+                                    <!--
+                                      TOCK_LOG_PROFILE (optionnel) sélectionne le fichier logback à charger, pour
+                                      garder la même image sur GCP / AWS / on-prem sans rebuild. Non définie (ou
+                                      vide) => /maven/logback.xml (comportement actuel, inchangé). Définie, ex.
+                                      TOCK_LOG_PROFILE=gcp => /maven/logback-gcp.xml. Chaque variante doit être
+                                      déclarée dans le <files> ci-dessous et être un logback.xml autonome et complet.
+                                    -->
+                                    <shell>java $JAVA_ARGS -Dfile.encoding=UTF-8 -Dtock_nlp_model_refresh=false -Dlogback.configurationFile="file:///maven/logback${TOCK_LOG_PROFILE:+-$TOCK_LOG_PROFILE}.xml" -cp '/maven/*' ai.tock.nlp.build.StartBuildWorkerKt $TOCK_BUILD_TYPE</shell>
                                 </cmd>
                                 <tags>
                                     <tag>${major}</tag>
